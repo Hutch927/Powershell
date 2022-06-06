@@ -1,11 +1,11 @@
 # Import active directory module for running AD cmdlets
 Import-Module ActiveDirectory
   
-# Store the data from NewUsersFinal.csv in the $ADUsers variable
-$ADUsers = Import-Csv C:\temp\NewUsersFinal.csv -Delimiter ";"
+$CSVPath = Read-Host -Prompt "Please type the path of the CSV file containing users to be added"
+$ADUsers = Import-Csv $CSVPath
 
 # Define UPN
-$UPN = "exoip.com"
+$UPN = "adatum.com"
 
 # Loop through each row containing user details in the CSV file
 foreach ($User in $ADUsers) {
